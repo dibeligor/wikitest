@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load mdtag %}
+
+{% block title %}
+    {{ text }}
+{% endblock %}
+
+{% block body %}
+
+    {% if entries %}
+        <ul>
+        {% for entry in entries %}
+            <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h3> Sorry mate, can't find your requested page.</h3>
+    {% endif %}
+    
+
+{% endblock %}

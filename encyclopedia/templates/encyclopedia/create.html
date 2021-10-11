@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load mdtag %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    {% if message %}
+      <h3>{{ message }}</h3>
+    {% else %}
+        <form action="{% url 'create' %}" method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit">
+        </form>
+    {% endif %}
+
+{% endblock %}

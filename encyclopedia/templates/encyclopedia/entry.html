@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load mdtag %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    {% if content %} 
+        <h3>{{ content|convert_markdown|safe }}</h3>
+        <button>
+            <a href="{% url 'edit' title %}">Edit</a>
+        </button>
+    {% else %}
+        <h3> Sorry mate, can't find your requested page.</h3>
+    {% endif %}
+
+   
+
+{% endblock %}
